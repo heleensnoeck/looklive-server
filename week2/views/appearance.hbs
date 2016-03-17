@@ -1,17 +1,17 @@
 <div class="appearance" data-id="{{ item.id }}">
-    <div class="appearance-left">
+    <div class="appearance__left">
         <img src="{{ item.image.url }}">
         {{#each item.product_occurrences}}
-            <div class="product-indicator" style="top: {{position.y}}%; left: {{position.x}}%;" data-uuid="{{product.id}}"></div>
+            <div class="product-indicator" style="top: {{position.y}}%;   /*deze is shit*/left: {{position.x}}%;" data-uuid="{{product.id}}"></div>
         {{/each}}
     </div>
-    <div class="appearance-right">
+    <div class="appearance__right">
         <h2><img class="avatar" src="{{ item.subject.avatar.url }}"> {{ item.subject.name }}</h2>
         <h1>{{ item.title }}</h1>
 
-        <div class="appearance-products">
+        <div class="appearance__products">
             <h1>Products</h1>
-            <div class="appearance-products-inner">
+            <div class="appearance__products--inner">
                 {{#each products}}
                     <div class="product" data-uuid="{{id}}">
                         <div class="actual">

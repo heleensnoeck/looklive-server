@@ -9,9 +9,10 @@ router.get('/', function(req, res, next) {
             next();
         }
 
-        res.render('feed', { title: 'Feed', items: JSON.parse(data) });
+        res.render('feed', { title: 'Feed', items: JSON.parse(data).slice(0, 8) });
     })
 });
+
 
 router.get('/appearance/:uuid', function(req, res, next) {
     fs.readFile('resources/appearance/'+req.params.uuid+'.json', 'utf8', function(err, data) {
