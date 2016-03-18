@@ -20,12 +20,12 @@ npm start
 
 ### HTML AND CSS REWRITEN
 **From**
-![alt tag](../screenshots/1_original_842ms.png)
+![alt tag](https://github.com/heleensnoeck/looklive-server/blob/student/heleen/week2/public/screenshots/1_original_842ms.png)
 842
 
 **To**
 
-![alt tag](../screenshots/2_css_en_html_herschreven_737ms.png)
+![alt tag](https://github.com/heleensnoeck/looklive-server/blob/student/heleen/week2/public/screenshots/2_css_en_html_herschreven_737ms.png)
 737ms
 
 ### Add sourch set for banner image and a sprite for the menu 
@@ -34,7 +34,7 @@ npm start
 
 **To**
 
-![alt tag](../screenshots/3_add_sourchset_and_sprite_602ms.png)
+![alt tag](https://github.com/heleensnoeck/looklive-server/blob/student/heleen/week2/public/screenshots/3_add_sourchset_and_sprite_602ms.png)
 602ms
 
 ### Jquery removed add vanilla javascript 
@@ -43,7 +43,7 @@ npm start
 
 **To**
 
-![alt tag](../screenshots/4_add_vanila_javascript_remove_jquery_438ms.png)
+![alt tag](https://github.com/heleensnoeck/looklive-server/blob/student/heleen/week2/public/screenshots/4_add_vanila_javascript_remove_jquery_%20438ms.png)
 438ms
 
 # what i have done week 2 
@@ -54,7 +54,7 @@ npm start
 
 **To**
 
-![alt tag](../screenshots/5_add_lazy_loading_422ms.png)
+![alt tag](https://github.com/heleensnoeck/looklive-server/blob/student/heleen/week2/public/screenshots/5_add_lazy_loading_422ms.png)
 422ms
 
 ### Added Greensock animation
@@ -63,7 +63,7 @@ npm start
 
 **To**
 
-![alt tag](../screenshots/6_add_greensock_animation.png)
+![alt tag](https://github.com/heleensnoeck/looklive-server/blob/student/heleen/week2/public/screenshots/6_add_greensock_%20animation.png)
 426ms
 
 ### Greensock vs css animation 
