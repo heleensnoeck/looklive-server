@@ -1,25 +1,14 @@
 # LookLive server
 
-The project you're looking at is an [express.js](http://expressjs.com) project. You'll use it to get set up a development environment where you're
-going to optimize the way this project works. In it's current state, the css is messy, the rendering isn't modern and
-overall the product is boring and not efficient. It's up to you to fix this and improve it.
+# For online usage
+http://localhoste:3000
 
 ## Getting started
 
-### Step 1 - clone the repo
-Github provides some instructions for this and we're assuming that you know how to clone this repo. If you're not sure,
-don't hesitate to raise your hand now and ask.
-
-### Step 2 - install dependencies
-In order to run the server you'll need to install express.js and it's dependencies. In order to do this, open up a 
-terminal and navigate to your project folder (for example `cd ~/Projects/looklive-server`). When you've done this, type
-this command to run the instal:
-
+### Step 1 - install dependencies
 ```
 npm install
 ```
-
-That should get you setup.
 
 ### Step 3 - running the server
 To run the server, stay at the 'root' of your project folder and type:
@@ -27,18 +16,73 @@ To run the server, stay at the 'root' of your project folder and type:
 ```
 npm start
 ```
+# what i have done week 1
 
-That will get the server to run on port 3000. If you go to [http://localhost:3000](http://localhost:3000) in your browser
-you should see an overview page.
+### HTML AND CSS REWRITEN
+**From**
+![alt tag](../screenshots/1_original_842ms.png)
+842
 
-## The api
+**To**
 
-This project comes with a simple API. All you need to know for now is that there's three endpoints:
+![alt tag](../screenshots/2_css_en_html_herschreven_737ms.png)
+737ms
 
-* `/api/feed/` <- returns a feed of appearances
-* `/api/appearance/:uuid` <- returns a single appearance, more detailed than in the feed. Replace `:uuid` with the 
-appearance id.
-* `/api/product/:uuid` <- returns a single product, including similar and bargain products. Replace `:uuid` with the 
-product id.
+### Add sourch set for banner image and a sprite for the menu 
+**From**
+737ms (see screenshot above)
 
-The API returns JSON (for now).
+**To**
+
+![alt tag](../screenshots/3_add_sourchset_and_sprite_602ms.png)
+602ms
+
+### Jquery removed add vanilla javascript 
+**From**
+602ms (see screenshot above)
+
+**To**
+
+![alt tag](../screenshots/4_add_vanila_javascript_remove_jquery_438ms.png)
+438ms
+
+# what i have done week 2 
+
+### Lazy loading added
+**From**
+602ms (see screenshot above)
+
+**To**
+
+![alt tag](../screenshots/5_add_lazy_loading_422ms.png)
+422ms
+
+### Added Greensock animation
+**From**
+422ms (see screenshot above)
+
+**To**
+
+![alt tag](../screenshots/6_add_greensock_animation.png)
+426ms
+
+### Greensock vs css animation 
+Een van de meest gehoorde argumenten van css3 animatie is dat je het moet gaan gebruiken omdat het beter presteert dan welke javascript based library.  
+
+Mensen denken dat als je je transities/animaties direct in je css stopt, de browser zich wel zorgen maakt over de berekeningen behind the scenes en ze dan doorgeeft aan de hardware(gpu) laten uitvoeren. Klinkt leuk echter is dit niet de praktijk. 
+
+Niet alle css properties zijn hardware-accelerated maar 3d transforms en opacity zijn dat wel, maar dat hangt dan ook nog eens af van de browser die de content renderd.
+
+Position: absolutes; bijv. trekt een element uit zijn document flow deze elementen worden niet hardware-accelerated gerenderd. 
+
+Er zijn veel artikelen geschreven over css animatie vs Jquery maar niet over Greensock vs Jquery en css animatie. Het blijkt dat greensock 20 keer sneller is dan Jquery in verschillende browsers.  
+
+Er zijn wel wat elementen sneller in css 3 zoals 3d transforms and opacity tweens. 
+
+Deze informatie komt uit een artikel dat greensock geschreven heeft over css animation vs greensock animation: https://greensock.com/transitions/
+
+Ze gaan ook dieper in over hoe je kan testen dat css toch echt langzamer is dan greensock.. 
+Dit is echter een lastig punt, greensock zegt er het volgende over: Timeline recordings in Chrome Dev Tools don't show the overhead involved with CSS animation of transforms, so people often misinterpret the [lack of] data. Recordings look "clean" with CSS and "dirty" with JS which leads to faulty conclusions about performance
+
+
+

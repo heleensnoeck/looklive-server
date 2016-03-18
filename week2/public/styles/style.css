@@ -252,21 +252,47 @@ body .similar .image {
     color: red;
 }
 
+.hide {
+    display: none;
+}
+
+#animation {
+    position: fixed;
+    bottom: 0px;
+    left: 37em;
+    /* margin: 0 auto; */
+    /* width: calc(100% - 50px); */
+    z-index: 1;
+}
 
 #dustall {
+    width: 100%;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+#rocket{
 /*    position: absolute;
 */    width: 100%;
+    margin: 0 auto;
+    transform-origin: 50% 50%;
+    z-index: 2;
+}
+
+/*#dustall {
+ width: 100%;
     margin: 0 auto;
     margin-top:300px;
     z-index: 1;
 }
 
 #rocket{
-/*    position: absolute;*/
     width: 100%;
     margin: 0 auto;
     margin-top: 300px;
     z-index: 2;
+    transform-origin: 50% 50%;
     transform: translateY(30em);
 }
+*/
 

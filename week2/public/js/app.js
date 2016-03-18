@@ -7,45 +7,54 @@
      // };
 
      // htmlElements.poduct
-     var product = document.querySelector('.product');
+    var product = document.querySelector('.product');
     
     var launcher = {
         init: function() {
-            // productPage.change();
+            productPage.show();
             lazyLoad.start();
 
         }
      };
-  
-     // nieuw klaar
-    // var productPage = {
-    //       change: function(e) {
-    //          var cur = e.currentTarget;
-    //          document.querySelector('.product-indicator-active').classList.remove('product-indicator-active');
-    //          cur.classList.add('product-indicator-active');
-    //          document.querySelector('.product-active').classList.remove('product-active');
-    //          document.querySelector('.product[data-uuid="' + cur.getAttribute('data-uuid') + '"]').classList.add('product-active');
-    //      },
-         
-    //       init: function() {
-    //          var productAttr = product.getAttribute('data-uuid'), //verwijst dit nu naar product?
-    //              indicator = document.querySelector('.product-indicator[data-uuid="' + productAttr + '"]'),
-    //              indicators = document.getElementsByClassName('product-indicator');
-     
-    //          product.classList.add('product-active');
-    //          indicator.classList.add('product-indicator-active');
-     
-    //          [].forEach.call(indicators, function (elem) {
-    //              elem.addEventListener('click', change, false);
-    //          });
-    //      },
-         
-    //      if (document.querySelector && window.addEventListener) {
-    //          if (product) {
-    //              init();
-    //          }
-    //      }
-    // }; // sluit productpage
+
+     var productPage = {
+            show: function() {
+                var product = document.querySelectorAll('.product');
+
+                if ( product.length ) {
+                    product[0].classList.add('product-active');
+
+                    var productIndicator = document.querySelectorAll('.product-indicator');
+                    var uuid = product[0].attributes[1].nodeValue;
+                    productIndicator[0].setAttribute('data-uuid', uuid);
+                    productIndicator[0].classList.add('product-indicator-active');
+
+                    Array.prototype.forEach.call(productIndicator, function(productIndicator) {
+
+                        productIndicator.addEventListener('click', showRelatedContent, false);
+
+                        function showRelatedContent() {
+
+                            var id = this.attributes[2].nodeValue;
+                            
+                            var activeEl = document.querySelector('.product-indicator-active');
+                            activeEl.classList.remove('product-indicator-active');
+
+                            var activeProduct = document.querySelector('.product-active');
+                            activeProduct.classList.remove('product-active');
+
+                            this.classList.add('product-indicator-active');
+
+                            var p = document.querySelector(".product[data-uuid='" + id + "']");
+                            p.classList.add('product-active');
+
+                        }
+
+                    }); 
+                }
+
+            }
+    };
 
     var lazyLoad = {
 
@@ -87,6 +96,7 @@
                                     el.innerHTML += response;
                                     isLoading = false;
                                     // stop de animatie
+                                    animatie.stop();
                                     
                                 });
 
@@ -100,7 +110,9 @@
 
     var animatie = {
         start: function() {
-            console.log('hoi');
+            document.getElementById('animation').classList.remove('hide');
+            
+            console.log(animation);
             
             var tl = new TimelineLite();
 
@@ -117,6 +129,7 @@
 
             tl.to("#rocket", 0.5, {
                 // opacity:0,
+                // transformOrigin: 50% 50%,
                 y: -300,
                 delay: 1
               },1.0);
@@ -136,7 +149,11 @@
                 opacity:0,
               });
             tl.timeScale(7);
+        },
+        stop: function() {
+            document.getElementById('animation').classList.add('hide');
         }
+
     };
 
     launcher.init();              
